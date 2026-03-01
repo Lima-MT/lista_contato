@@ -25,16 +25,35 @@ abstract class HomeViewModel extends State<Home> {
   @override
   void dispose() {
     super.dispose();
+    searchController.dispose();
   }
 
   Future<void> loadPersons() async {
     setState(() => _isLoading = true);
+
     try {
-      _persons = await repository.getAll();
+      final persons = await repository.getAll();
+
+      setState(() {
+        _persons = persons;
+        _isLoading = false;
+      });
     } catch (e) {
-      debugPrint(e.toString());
-    } finally {
       setState(() => _isLoading = false);
+      debugPrint(e.toString());
     }
+  }
+
+  Future<void> onToggleFavorite(Person person) async {
+    final updated = await repository.toggleFavorite(person);
+
+    setState(() {
+      _persons = _persons.map((p) {
+        if (p.id == updated.id) {
+          return updated;
+        }
+        return p;
+      }).toList();
+    });
   }
 }

@@ -13,4 +13,8 @@ class PersonService {
     final results = response.data["results"] as List;
     return results.map((e) => Person.fromJson(e)).toList();
   }
+
+  Future<void> updatePerson(Person person) async {
+    await dio.put('/Person/${person.id}', data: person.toJson());
+  }
 }

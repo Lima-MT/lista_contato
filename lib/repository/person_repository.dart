@@ -13,4 +13,11 @@ class PersonRepository {
   Future<List<Person>> getAll() async {
     return await service.getAllPersons();
   }
+
+  Future<Person> toggleFavorite(Person person) async {
+    final updatedPerson = person.copyWith(isFavorite: !person.isFavorite);
+    await service.updatePerson(updatedPerson);
+
+    return updatedPerson;
+  }
 }

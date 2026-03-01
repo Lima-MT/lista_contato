@@ -9,7 +9,8 @@ class SearchButton extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: InputDecoration(
-        hintText: 'Pesquisar Contato',
+        hintText: 'Pesquisar contatos',
+        prefixIcon: Icon(Icons.search),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey, width: 2),
           borderRadius: BorderRadius.circular(10),
