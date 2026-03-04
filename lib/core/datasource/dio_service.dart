@@ -4,7 +4,7 @@ import 'package:lista_contato/core/secret/app_secret.dart';
 class DioService {
   static final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'https://parseapi.back4app.com/classes/',
+      baseUrl: 'https://parseapi.back4app.com',
       headers: {
         "X-Parse-Application-Id": AppSecret.appId,
         "X-Parse-REST-API-Key": AppSecret.apiKey,

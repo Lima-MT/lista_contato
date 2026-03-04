@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Lista de Contatos',
       routerConfig: routers,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

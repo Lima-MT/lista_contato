@@ -3,7 +3,7 @@ class Person {
   final String name;
   final String email;
   final String phone;
-  final String imagePath;
+  final String? imagePath;
   bool isFavorite = false;
 
   Person({
